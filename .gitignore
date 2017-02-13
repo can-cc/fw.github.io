@@ -1,1 +1,5 @@
 dist/
+.tern-port
+npm-debug.log
+tags
+node_modules/
