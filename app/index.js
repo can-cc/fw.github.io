@@ -14,21 +14,20 @@ window.onload = function() {
   var camera = new THREE.PerspectiveCamera(95, windowWidth / windowHeight, 1, 1000);
   camera.position.y = 0;
   camera.position.x = 0;
-  camera.position.z = 500;
+  camera.position.z = 400;
 
   // scene
   var scene = new THREE.Scene();
-  scene.add(camera); //ADDED
+  scene.add(camera);
 
 
   var geometry = new THREE.PlaneGeometry(446, 600);
 
-  new THREE.TextureLoader().load('assets/image/dash.jpg', function(texture) {
+  new THREE.TextureLoader().load('assets/image/dash.png', function(texture) {
     var material = new THREE.MeshBasicMaterial({map: texture});
     var plane = new THREE.Mesh( geometry, material );
     scene.add( plane );
     renderer.render(scene, camera);
-
     window.addEventListener('mousemove', (event) => {
       const {offsetX, offsetY} = event;
 
