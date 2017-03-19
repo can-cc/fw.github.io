@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import {Play} from './play';
 
 import './style/index.scss';
 
@@ -27,7 +28,7 @@ window.onload = function() {
     var material = new THREE.MeshBasicMaterial({map: texture});
     var plane = new THREE.Mesh( geometry, material );
     scene.add( plane );
-    renderer.render(scene, camera);
+    // renderer.render(scene, camera);
     window.addEventListener('mousemove', (event) => {
       const {offsetX, offsetY} = event;
 
@@ -37,13 +38,24 @@ window.onload = function() {
       plane.rotation.x = offsetXPercentrage * 10 * (Math.PI / 180);
       plane.rotation.y = offsetYPercentrage * 10 * (Math.PI / 180);
 
-      renderer.render(scene, camera);
+      // renderer.render(scene, camera);
     });
   });
+
+  var geom = new THREE.PlaneBufferGeometry(500, 500, 1, 1);
+  var playmesh  = new Play({
+    geom: geom.clone()
+  });
+  playmesh.position.z = 50;
+  playmesh.position.x = 50;
+  playmesh.position.y = 50;
+  scene.add(playmesh);
+  playmesh.show();
 
   // add subtle ambient lighting
   var ambientLight = new THREE.AmbientLight(0x555555);
   scene.add(ambientLight);
+
 
   // add directional light source
   var directionalLight = new THREE.DirectionalLight(0xffffff);
