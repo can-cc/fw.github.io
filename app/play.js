@@ -31,11 +31,11 @@ export class Play extends THREE.Mesh {
   }
 
   initCSS() {
-    var div = document.createElement("div");
-    div.className = "playbutton hide";
+    var div = document.createElement('div');
+    div.className = 'playbutton hide';
     this.render(div, templateHtml, {});
     this.cssButton = new THREE.CSS3DObject(div);
-    this.playGlitch = new TextGlitch(this.cssButton.element.querySelector("p"));
+    this.playGlitch = new TextGlitch(this.cssButton.element.querySelector('p'));
     this.add(this.cssButton)
   }
 
@@ -81,9 +81,9 @@ export class Play extends THREE.Mesh {
   }
 
   onClick(e) {
-    emitter.emit("beep");
+    emitter.emit('beep');
     this.removeCssButtonEvent();
-    emitter.emit("xp:start");
+    emitter.emit('xp:start');
     this.hide()
   }
 

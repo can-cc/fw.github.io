@@ -43,17 +43,16 @@ window.onload = function() {
   });
 
   var geom = new THREE.PlaneBufferGeometry(500, 500, 1, 1);
-  var playmesh  = new Play({
-    geom: geom.clone()
-  });
-  playmesh.position.z = 50;
-  playmesh.position.x = 50;
-  playmesh.position.y = 50;
+  var playmesh  = new Play();
+  playmesh.position.z = 0;
+  playmesh.position.x = 0;
+  playmesh.position.y = 0;
+  console.log(playmesh);
   scene.add(playmesh);
   playmesh.show();
 
   // add subtle ambient lighting
-  var ambientLight = new THREE.AmbientLight(0x555555);
+  var ambientLight = new THREE.AmbientLight(0xffffff);
   scene.add(ambientLight);
 
 
