@@ -15,11 +15,12 @@ export class Play extends THREE.Mesh {
   constructor(opts) {
     var geomloader = new THREE.BufferGeometryLoader;
     var geom = geomloader.parse(PlayJson);
-    super(geom, new PlaymaterialJs({
+    var materialJs = new PlaymaterialJs({
       color: "#4200ff",
       transparent: true,
       side: 2
-    }));
+    })
+    super(geom, materialJs);
     this.enter = false;
     this.currentScale = .5;
     this.scale.set(.5, .5, .5);
@@ -116,6 +117,7 @@ export class Play extends THREE.Mesh {
   }
 
   onMouseEnter(e) {
+    console.log('mouse enter');
     var _this3 = this;
     this.cssButton.element.classList.add("enter");
     TweenMax.killTweensOf(this.scaleTween);
