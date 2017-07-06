@@ -19,8 +19,10 @@ export class Play extends THREE.Mesh {
       color: "#4200ff",
       transparent: true,
       side: 2
-    })
-    super(geom, materialJs);
+    });
+    var geometry = new THREE.BoxGeometry( 10, 10, 10 );
+    var material = new THREE.MeshBasicMaterial( {color: 0x999999} );
+    super(geom, material);
     this.enter = false;
     this.currentScale = .5;
     this.scale.set(.5, .5, .5);
